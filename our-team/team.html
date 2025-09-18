@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - Ar. Akshay Jain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #ffffff;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(51, 40, 134, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(90, 79, 207, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(51, 40, 134, 0.02) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(10px) rotate(-1deg);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350 400"><rect width="1350" height="400" fill="%23f0f0f0"/><rect x="50" y="150" width="300" height="200" rx="20" fill="%23ddd"/><rect x="400" y="100" width="250" height="250" rx="15" fill="%23e5e5e5"/><rect x="700" y="120" width="280" height="220" rx="18" fill="%23d5d5d5"/><rect x="1020" y="80" width="200" height="280" rx="12" fill="%23e0e0e0"/><rect x="100" y="180" width="50" height="80" fill="%23ccc"/><rect x="200" y="190" width="80" height="70" fill="%23bbb"/><circle cx="150" cy="50" r="20" fill="%23aaa"/><circle cx="850" cy="60" r="15" fill="%23999"/></svg>') center/cover;
+            border-radius: 40px;
+            margin: 40px 24px 0;
+            box-shadow: 0 20px 60px rgba(51, 40, 134, 0.15);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;
+            border-radius: 40px;
+            z-index: 1;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(51, 40, 134, 0.8) 0%, rgba(90, 79, 207, 0.8) 100%);
+            border-radius: 40px;
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            animation: heroFadeIn 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-breadcrumb {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .hero-breadcrumb::before {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .hero-breadcrumb::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 5;
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        /* Team Intro Section */
+        .team-intro {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+            border-radius: 40px;
+            padding: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease-out 0.3s both;
+            box-shadow: 0 20px 60px rgba(51, 40, 134, 0.08);
+            text-align: center;
+        }
+
+        .team-intro::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 0deg, rgba(51, 40, 134, 0.02) 90deg, transparent 180deg);
+            animation: rotate 20s linear infinite;
+        }
+
+        .team-intro::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #ffffff;
+            border-radius: 38px;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .team-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #332886;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .team-intro h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #332886 0%, #5a4fcf 100%);
+            border-radius: 2px;
+        }
+
+        .team-intro p {
+            font-size: 1.2rem;
+            color: #444444;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .team-member {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(51, 40, 134, 0.05);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            border-color: #332886;
+            box-shadow: 0 20px 40px rgba(51, 40, 134, 0.15);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(51, 40, 134, 0.05) 50%, transparent 100%);
+            transition: left 0.5s ease;
+        }
+
+        .team-member:hover::before {
+            left: 100%;
+        }
+
+        .member-info {
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #332886;
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .member-description {
+            font-size: 1rem;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill-badge {
+            background: rgba(51, 40, 134, 0.1);
+            color: #332886;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(51, 40, 134, 0.2);
+        }
+
+        .member-contact {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #332886 0%, #5a4fcf 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(51, 40, 134, 0.2);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(51, 40, 134, 0.3);
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            background: linear-gradient(135deg, #332886 0%, #5a4fcf 100%);
+            border-radius: 40px;
+            padding: 60px;
+            margin-bottom: 80px;
+            color: #ffffff;
+            text-align: center;
+            animation: slideUp 1s ease-out 0.9s both;
+        }
+
+        .leadership-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .leadership-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .leadership-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .leadership-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .leadership-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .leadership-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .leadership-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Mobile Responsive Design */
+
+        /* Large Tablets & Small Desktops */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .team-intro {
+                padding: 50px 40px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        /* Tablets */
+        @media (max-width: 1024px) {
+            .hero-section {
+                height: 55vh;
+                margin: 30px 20px 0;
+            }
+
+            .main-content {
+                padding: 60px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Large Mobile Devices */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 45vh;
+                margin: 20px 16px 0;
+                border-radius: 25px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+                margin-bottom: 12px;
+            }
+
+            .hero-breadcrumb {
+                font-size: 1rem;
+            }
+
+            .hero-breadcrumb::before,
+            .hero-breadcrumb::after {
+                width: 25px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .main-content {
+                padding: 40px 0;
+            }
+
+            .team-intro {
+                padding: 40px 20px;
+                margin-bottom: 40px;
+                border-radius: 25px;
+            }
+
+            .team-intro h2 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+
+            .team-intro p {
+                font-size: 1.1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+
+            .team-member {
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+
+            .member-avatar {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+                margin-bottom: 20px;
+            }
+
+            .member-icon {
+                font-size: 2.5rem;
+            }
+
+            .member-name {
+                font-size: 1.3rem;
+            }
+
+            .member-role {
+                font-size: 1rem;
+            }
+
+            .member-description {
+                font-size: 0.95rem;
+            }
+
+            .leadership-section {
+                padding: 40px 20px;
+                border-radius: 25px;
+                margin-bottom: 50px;
+            }
+
+            .leadership-section h3 {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+
+            .leadership-item {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .leadership-icon {
+                font-size: 2rem;
+            }
+
+            .leadership-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            .hero-section {
+                height: 40vh;
+                margin: 15px 12px 0;
+                border-radius: 20px;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 12vw, 3rem);
+            }
+
+            .hero-breadcrumb {
+                font-size: 0.9rem;
+            }
+
+            .hero-breadcrumb::before,
+            .hero-breadcrumb::after {
+                width: 20px;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            .main-content {
+                padding: 30px 0;
+            }
+
+            .team-intro {
+                padding: 30px 15px;
+                border-radius: 20px;
+            }
+
+            .team-intro h2 {
+                font-size: 1.6rem;
+            }
+
+            .team-intro p {
+                font-size: 1rem;
+            }
+
+            .team-member {
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+
+            .member-avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 15px;
+            }
+
+            .member-icon {
+                font-size: 2rem;
+            }
+
+            .member-name {
+                font-size: 1.1rem;
+            }
+
+            .member-role {
+                font-size: 0.9rem;
+            }
+
+            .member-description {
+                font-size: 0.9rem;
+            }
+
+            .skill-badge {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+                border-radius: 12px;
+            }
+
+            .contact-link {
+                width: 35px;
+                height: 35px;
+                border-radius: 10px;
+            }
+
+            .leadership-section {
+                padding: 30px 15px;
+                border-radius: 20px;
+            }
+
+            .leadership-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .leadership-item {
+                padding: 25px 15px;
+                border-radius: 15px;
+            }
+        }
+
+        /* Extra Small Mobile Devices */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .hero-section {
+                height: 35vh;
+                margin: 10px 8px 0;
+                border-radius: 15px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 15vw, 2.5rem);
+            }
+
+            .hero-breadcrumb {
+                font-size: 0.8rem;
+            }
+
+            .team-intro,
+            .team-member,
+            .leadership-section {
+                padding: 20px 10px;
+                border-radius: 15px;
+            }
+
+            .team-intro h2 {
+                font-size: 1.4rem;
+            }
+
+            .member-avatar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .member-icon {
+                font-size: 1.8rem;
+            }
+
+            .leadership-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+
+            .team-member:hover,
+            .leadership-item:hover,
+            .contact-link:hover {
+                transform: none;
+            }
+
+            .team-member:active {
+                transform: scale(0.98);
+            }
+
+            .leadership-item:active {
+                transform: scale(0.98);
+            }
+
+            .contact-link:active {
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Team</h1>
+                <p class="hero-breadcrumb">Home - Team</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Team Introduction -->
+            <div class="team-intro">
+                <h2>Meet Our Expert Team</h2>
+                <p>
+                    Our dedicated team of architects, designers, and project managers brings together decades of
+                    combined experience
+                    to deliver exceptional architectural solutions. Each member contributes unique expertise and
+                    creative vision to
+                    ensure every project exceeds expectations and stands as a testament to innovative design and quality
+                    craftsmanship.
+                </p>
+            </div>
+
+            <!-- Team Members Grid -->
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Ar. Akshay Jain</h3>
+                        <div class="member-role">Principal Architect & Founder</div>
+                        <p class="member-description">
+                            Leading the firm with over 12 years of experience in architecture and planning.
+                            Specializes in sustainable design, urban planning, and innovative architectural solutions.
+                        </p>
+                        <div class="member-skills">
+                            <span class="skill-badge">Project Management</span>
+                            <span class="skill-badge">Urban Planning</span>
+                            <span class="skill-badge">Green Design</span>
+                        </div>
+                        <div class="member-contact">
+                            <a href="tel:+919660255266" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </a>
+                            <a href="mailto:akshayjn869@gmail.com" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Priya Sharma</h3>
+                        <div class="member-role">Senior Interior Designer</div>
+                        <p class="member-description">
+                            Expert in creating stunning interior spaces that combine functionality with aesthetic
+                            appeal.
+                            Specializes in residential and commercial interior design with 8+ years of experience.
+                        </p>
+                        <div class="member-skills">
+                            <span class="skill-badge">Interior Design</span>
+                            <span class="skill-badge">3D Visualization</span>
+                            <span class="skill-badge">Space Planning</span>
+                        </div>
+                        <div class="member-contact">
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Rajesh Kumar</h3>
+                        <div class="member-role">Project Manager</div>
+                        <p class="member-description">
+                            Ensures smooth project execution from conception to completion. Expert in construction
+                            management,
+                            quality control, and client coordination with 10+ years of field experience.
+                        </p>
+                        <div class="member-skills">
+                            <span class="skill-badge">Project Management</span>
+                            <span class="skill-badge">Quality Control</span>
+                            <span class="skill-badge">Construction</span>
+                        </div>
+                        <div class="member-contact">
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Anita Verma</h3>
+                        <div class="member-role">Structural Engineer</div>
+                        <p class="member-description">
+                            Specializes in structural design and analysis for residential and commercial projects.
+                            Ensures all designs meet safety standards and building codes with 6+ years of expertise.
+                        </p>
+                        <div class="member-skills">
+                            <span class="skill-badge">Structural Design</span>
+                            <span class="skill-badge">AutoCAD</span>
+                            <span class="skill-badge">Building Codes</span>
+                        </div>
+                        <div class="member-contact">
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Rohit Singh</h3>
+                        <div class="member-role">Junior Architect</div>
+                        <p class="member-description">
+                            Fresh graduate with innovative ideas and proficiency in modern design software.
+                            Assists in project design, drafting, and 3D modeling with enthusiasm and dedication.
+                        </p>
+                        <div class="member-skills">
+                            <span class="skill-badge">AutoCAD</span>
+                            <span class="skill-badge">SketchUp</span>
+                            <span class="skill-badge">Drafting</span>
+                        </div>
+                        <div class="member-contact">
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-member">
+                    <div class="member-info">
+                        <h3 class="member-name">Meena Patel</h3>
+                        <div class="member-role">Client Relations Manager</div>
+                        <p class="member-description">
+                            Manages client relationships and ensures seamless communication throughout projects.
+                            Expert in client coordination, project updates, and customer satisfaction with 5+ years
+                            experience.
+                        </p>
+                        <div class="member-skills">
+                            <span class="skill-badge">Client Relations</span>
+                            <span class="skill-badge">Communication</span>
+                            <span class="skill-badge">Project Coordination</span>
+                        </div>
+                        <div class="member-contact">
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
