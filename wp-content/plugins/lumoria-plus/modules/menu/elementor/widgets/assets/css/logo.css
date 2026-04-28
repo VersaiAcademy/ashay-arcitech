@@ -7,10 +7,29 @@
     color: inherit;
 }
 
+.wdt-logo-container {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+}
+
 .wdt-logo-container a img {
-    display: inline-block;
-    vertical-align: middle;
-    vertical-align: middle;
+    display: block;
+    height: 150px !important;
+    max-height: 150px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .wdt-logo-container {
+        justify-content: flex-start !important;
+        height: 30px;
+    }
+    .wdt-logo-container a img {
+        height: 110px !important;
+        max-height: 110px !important;
+    }
 }
 
 .wdt-logo-container a .site-title {

@@ -739,15 +739,22 @@
     /* Logo Size */
 
         .wdt-no-header-builder-content .no-header .no-header-logo > a > img,
-        .elementor-widget-wdt-logo div.wdt-logo-container a img { height: auto; width: 180px; max-width: 180px; }
+        .elementor-widget-wdt-logo div.wdt-logo-container a img { height: 150px; width: auto; max-width: 300px; object-fit: contain; display: block; filter: invert(0%) brightness(1) drop-shadow(0 0 0 transparent); background: transparent; }
+
+        .elementor-widget-wdt-logo div.wdt-logo-container a img {
+            border-radius: 0;
+            background-color: transparent !important;
+            -webkit-filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+            filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+        }
 
         @media (max-width: 1280px) {
             .wdt-no-header-builder-content .no-header .no-header-logo > a > img,
-            .elementor-widget-wdt-logo div.wdt-logo-container a img { width: 150px; max-width: 150px; }
+            .elementor-widget-wdt-logo div.wdt-logo-container a img { height: 120px; width: auto; max-width: 240px; }
         }
         @media (max-width: 767px) {
             .wdt-no-header-builder-content .no-header .no-header-logo > a > img,
-            .elementor-widget-wdt-logo div.wdt-logo-container a img { width: 120px; max-width: 120px; }
+            .elementor-widget-wdt-logo div.wdt-logo-container a img { height: 110px !important; width: auto; max-width: 220px; }
         }
 
     /* Header Margin Start */
