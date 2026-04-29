@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-US">
 
 <head>
@@ -4430,23 +4430,34 @@
 										</div>
 
 										<!-- Gallery Section (Pinterest Style Masonry) -->
+										<!-- Lightbox Modal -->
 										<div class="gallery">
-											<div class="item interior square"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-2-300x184.jpg"
-													alt="Interior Architecture"></div>
-											<div class="item residential tall"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-2-768x470.jpg"
-													alt="Residential Architecture"></div>
-											<div class="item sustainable wide"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-3-300x184.jpg"
-													alt="Sustainable Design"></div>
-											<div class="item interior square"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-3-300x184.jpg"
-													alt="Interior Architecture"></div>
-											<div class="item urban square"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-3-768x470.jpg"
-													alt="Urban Planning"></div>
-											<div class="item residential tall"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-3.jpg"
-													alt="Residential Architecture"></div>
-											<div class="item sustainable square"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-4-300x184.jpg"
-													alt="Sustainable Design"></div>
-											<div class="item urban square"><img loading="lazy" src="wp-content/uploads/2025/07/Home-2-tab-4-768x470.jpg"
-													alt="Urban Planning"></div>
+											<div class="item interior square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.18 PM.jpeg" alt="Interior Architecture"></div>
+											<div class="item residential tall"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.19 PM.jpeg" alt="Residential Architecture"></div>
+											<div class="item sustainable wide"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.20 PM.jpeg" alt="Sustainable Design"></div>
+											<div class="item interior square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.21 PM.jpeg" alt="Interior Architecture"></div>
+											<div class="item urban square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.21 PM (1).jpeg" alt="Urban Planning"></div>
+											<div class="item residential tall"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.22 PM.jpeg" alt="Residential Architecture"></div>
+											<div class="item sustainable square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.22 PM (1).jpeg" alt="Sustainable Design"></div>
+											<div class="item urban square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.22 PM (2).jpeg" alt="Urban Planning"></div>
+											<div class="item interior tall"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.22 PM (3).jpeg" alt="Interior Architecture"></div>
+											<div class="item residential square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.23 PM.jpeg" alt="Residential Architecture"></div>
+											<div class="item sustainable wide"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.23 PM (1).jpeg" alt="Sustainable Design"></div>
+											<div class="item urban tall"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.23 PM (2).jpeg" alt="Urban Planning"></div>
+											<div class="item interior square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.23 PM (3).jpeg" alt="Interior Architecture"></div>
+											<div class="item residential square"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.24 PM.jpeg" alt="Residential Architecture"></div>
+											<div class="item sustainable tall"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.24 PM (1).jpeg" alt="Sustainable Design"></div>
+											<div class="item urban wide"><img loading="lazy" src="wp-content/themes/lumoria/assets/images/WhatsApp Image 2026-04-28 at 4.15.24 PM (2).jpeg" alt="Urban Planning"></div>
+																			<div class="item interior wide"><img loading="lazy" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Interior Architecture"></div>
+											<div class="item residential wide"><img loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Residential Architecture"></div>
+											<div class="item sustainable square"><img loading="lazy" src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80" alt="Sustainable Design"></div>
+											<div class="item urban tall"><img loading="lazy" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Urban Planning"></div>
+										</div>
+										<div class="gallery-load-more-wrapper">
+											<button id="gallery-load-more" class="gallery-load-more-btn">
+												<span class="load-more-text">Load More</span>
+												<span class="load-more-icon">&#8595;</span>
+											</button>
 										</div>
 
 										<style>
@@ -4542,6 +4553,13 @@
 												transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 												box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 												cursor: pointer;
+											}
+
+											.gallery .item img {
+												width: 100%;
+												height: 100%;
+												object-fit: cover;
+												display: block;
 											}
 
 											/* Different grid spans for Pinterest style */
@@ -4691,7 +4709,43 @@
 												}
 											}
 
-											/* Smooth filtering animation */
+											
+					/* Load More Button */
+					.gallery-load-more-wrapper {
+						display: flex;
+						justify-content: center;
+						margin-top: 40px;
+					}
+					.gallery-load-more-btn {
+						display: inline-flex;
+						align-items: center;
+						gap: 10px;
+						padding: 14px 35px;
+						background: #332886;
+						color: #fff;
+						border: none;
+						border-radius: 30px;
+						font-size: 15px;
+						font-weight: 600;
+						cursor: pointer;
+						box-shadow: 0 4px 20px rgba(51,40,134,0.3);
+						transition: all 0.3s ease;
+						letter-spacing: 0.5px;
+					}
+					.gallery-load-more-btn:hover {
+						background: #251f6b;
+						transform: translateY(-3px);
+						box-shadow: 0 8px 25px rgba(51,40,134,0.4);
+					}
+					.gallery-load-more-btn .load-more-icon {
+						font-size: 18px;
+						animation: bounce 1.5s infinite;
+					}
+					@keyframes bounce {
+						0%, 100% { transform: translateY(0); }
+						50% { transform: translateY(4px); }
+					}
+												/* Smooth filtering animation */
 											.item {
 												opacity: 1;
 												transform: scale(1);
@@ -4757,62 +4811,59 @@
 										</style>
 
 										<script>
-											const buttons = document.querySelectorAll('.filter-buttons button');
-											const items = document.querySelectorAll('.gallery .item');
+					var INITIAL_SHOW = 8;
+					var currentFilter = 'all';
+					var showAll = false;
 
-											buttons.forEach(button => {
-												button.addEventListener('click', () => {
-													// Remove active class from all buttons
-													buttons.forEach(btn => btn.classList.remove('active'));
-													// Add active class to clicked button
-													button.classList.add('active');
+					function getFilteredItems() {
+						var allItems = Array.from(document.querySelectorAll('.gallery .item'));
+						if (currentFilter === 'all') return allItems;
+						return allItems.filter(function(item) { return item.classList.contains(currentFilter); });
+					}
 
-													const filter = button.getAttribute('data-filter');
+					function renderGallery() {
+						var allItems = Array.from(document.querySelectorAll('.gallery .item'));
+						var loadMoreBtn = document.getElementById('gallery-load-more');
+						var filtered = getFilteredItems();
+						allItems.forEach(function(item) { item.style.display = 'none'; });
+						var toShow = showAll ? filtered : filtered.slice(0, INITIAL_SHOW);
+						toShow.forEach(function(item, i) {
+							setTimeout(function() { item.style.display = 'block'; }, i * 30);
+						});
+						if (loadMoreBtn) {
+							if (filtered.length > INITIAL_SHOW && !showAll) {
+								loadMoreBtn.parentElement.style.display = 'flex';
+								loadMoreBtn.querySelector('.load-more-text').textContent = 'Load More (' + (filtered.length - INITIAL_SHOW) + ' more)';
+							} else {
+								loadMoreBtn.parentElement.style.display = 'none';
+							}
+						}
+					}
 
-													console.log('Filter clicked:', filter); // Debug log
+					document.addEventListener('DOMContentLoaded', function() {
+						var buttons = document.querySelectorAll('.filter-buttons button');
+						var loadMoreBtn = document.getElementById('gallery-load-more');
 
-													// Filter items with smooth animation
-													items.forEach((item, index) => {
-														// Reset any previous timeouts
-														setTimeout(() => {
-															if (filter === 'all') {
-																// Show all items
-																item.classList.remove('hide');
-																item.style.display = 'block';
-															} else if (item.classList.contains(filter)) {
-																// Show matching items
-																item.classList.remove('hide');
-																item.style.display = 'block';
-															} else {
-																// Hide non-matching items
-																item.classList.add('hide');
-																// Use timeout to hide after animation
-																setTimeout(() => {
-																	if (item.classList.contains('hide')) {
-																		item.style.display = 'none';
-																	}
-																}, 400);
-															}
-														}, index * 30); // Staggered animation
-													});
-												});
-											});
+						buttons.forEach(function(button) {
+							button.addEventListener('click', function() {
+								buttons.forEach(function(btn) { btn.classList.remove('active'); });
+								button.classList.add('active');
+								currentFilter = button.getAttribute('data-filter');
+								showAll = false;
+								renderGallery();
+							});
+						});
 
-											// Initialize gallery
-											document.addEventListener('DOMContentLoaded', function () {
-												// Show all items initially
-												items.forEach(item => {
-													item.style.display = 'block';
-													item.classList.remove('hide');
-												});
+						if (loadMoreBtn) {
+							loadMoreBtn.addEventListener('click', function() {
+								showAll = true;
+								renderGallery();
+							});
+						}
 
-												// Debug: Log all items and their classes
-												console.log('Gallery items:', items);
-												items.forEach((item, index) => {
-													console.log(`Item ${index}:`, item.className);
-												});
-											});
-										</script>
+						renderGallery();
+					});
+				</script>
 
 
 									</div>
@@ -5214,7 +5265,7 @@
 																					<a href="contact-us/index.htm">Get
 																						This Package</a>
 																				</div>
-																				<div
+																				<!-- <div
 																					class="wdt-pricing-table-pricing-inner">
 																					<div
 																						class="wdt-pricing-table-pricing-sale">
@@ -5224,7 +5275,7 @@
 																							class="wdt-pricing-table-pricing-suffix beside">/
 																							Package</span>
 																					</div>
-																				</div>
+																				</div> -->
 																			</div>
 																		</div>
 																	</div>
@@ -5371,7 +5422,7 @@
 																					<a href="contact-us/index.htm">Get
 																						This Package</a>
 																				</div>
-																				<div
+																				<!-- <div
 																					class="wdt-pricing-table-pricing-inner">
 																					<div
 																						class="wdt-pricing-table-pricing-sale">
@@ -5381,7 +5432,7 @@
 																							class="wdt-pricing-table-pricing-suffix beside">/
 																							Package</span>
 																					</div>
-																				</div>
+																				</div> -->
 																			</div>
 																		</div>
 																	</div>
@@ -5527,7 +5578,7 @@
 																					<a href="contact-us/index.htm">Get
 																						This Package</a>
 																				</div>
-																				<div
+																				<!-- <div
 																					class="wdt-pricing-table-pricing-inner">
 																					<div
 																						class="wdt-pricing-table-pricing-sale">
@@ -5537,7 +5588,7 @@
 																							class="wdt-pricing-table-pricing-suffix beside">/
 																							Package</span>
 																					</div>
-																				</div>
+																				</div> -->
 																			</div>
 																		</div>
 																	</div>
@@ -6792,7 +6843,7 @@
 														data-settings="{&quot;wdt_animation_effect&quot;:&quot;none&quot;}"
 														data-widget_type="text-editor.default">
 														<div class="elementor-widget-container">
-															<p>Divine engineer and construction � Build Your Dream, Shape Your Legacy</p>
+															<p>Building dreams with precision and excellence.</p>
 														</div>
 													</div>
 													<div class="elementor-element elementor-element-e30c957 wdt-dark-bg elementor-widget elementor-widget-wdt-button"
@@ -7239,7 +7290,7 @@
 														data-settings="{&quot;wdt_animation_effect&quot;:&quot;none&quot;}"
 														data-widget_type="text-editor.default">
 														<div class="elementor-widget-container">
-															<p>� Divine engineer and construction | Developed by ?????s? ??????</p>
+															<p>Divine engineer and construction | Developed by ᴋᴀᴍʟᴇsʜ ᴊᴀɴɢɪʀ</p>
 
 
 														</div>
@@ -7805,6 +7856,28 @@
 				</g>
 			</svg></span>
 	</a>
+<!-- LIGHTBOX OVERLAY -->
+<style>
+#wdt-lb{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.93);z-index:2147483647;align-items:center;justify-content:center;cursor:pointer;}
+#wdt-lb.show{display:flex;}
+#wdt-lb img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:8px;cursor:default;}
+#wdt-lb-close{position:fixed;top:15px;right:25px;color:#fff;font-size:50px;font-weight:bold;cursor:pointer;line-height:1;z-index:2147483647;}
+</style>
+<div id="wdt-lb" onclick="this.classList.remove('show');document.body.style.overflow='';">
+  <span id="wdt-lb-close">&times;</span>
+  <img id="wdt-lb-img" src="" onclick="event.stopPropagation();">
+</div>
+<script>
+document.querySelectorAll('.gallery .item img').forEach(function(img){
+  img.style.cursor='pointer';
+  img.addEventListener('click',function(){
+    document.getElementById('wdt-lb-img').src=this.src;
+    document.getElementById('wdt-lb').classList.add('show');
+    document.body.style.overflow='hidden';
+  });
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('wdt-lb').classList.remove('show');document.body.style.overflow='';}});
+</script>
 </body>
 
 </html>
