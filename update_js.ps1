@@ -91,7 +91,7 @@ $cssToAdd = @'
 						align-items: center;
 						gap: 10px;
 						padding: 14px 35px;
-						background: #332886;
+						background: #6f6e6e;
 						color: #fff;
 						border: none;
 						border-radius: 30px;
